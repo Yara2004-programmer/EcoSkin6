@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cartStyle.css"> <!-- ربط CSS -->
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+    <h1>Your Shopping Cart</h1>
+    <div class="cart">
+        <!-- المنتجات المضافة للسلة ستُعرض هنا -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cartItems">
+                <!-- المنتجات الديناميكية تُضاف هنا بواسطة JavaScript -->
+            </tbody>
+        </table>
+        <div class="cart-total">
+            <h2>Total: <span id="cartTotal">0.00</span> SAR</h2>
+        </div>
+        <button id="checkoutButton">Checkout</button>
+    </div>
+
+    <script>
+        // دالة لعرض المنتجات في صفحة السلة
+        function displayCart() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const cartItemsContainer = document.getElementById("cartItems");
+            const cartTotalElement = document.getElementById("cartTotal");
+            let total = 0;
+
+            cartItemsContainer.innerHTML = ""; // تفريغ المحتوى السابق
+
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                cartItemsContainer.innerHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.price} SAR</td>
+                        <td>${item.quantity}</td>
+                        <td>${itemTotal.toFixed(2)} SAR</td>
+                        <td><button onclick="removeFromCart('${item.name}')">Remove</button></td>
+                    </tr>
+                `;
+            });
+
+            cartTotalElement.textContent = total.toFixed(2);
+        }
+
+        // دالة لإزالة منتج من السلة
+        function removeFromCart(productName) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart = cart.filter(item => item.name !== productName); // حذف المنتج
+            localStorage.setItem("cart", JSON.stringify(cart));
+            displayCart(); // تحديث السلة
+        }
+
+        // عرض السلة عند تحميل الصفحة
+        window.onload = displayCart;
+    </script>
+</body>
+</html>
+

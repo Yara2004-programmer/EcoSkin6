@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="productStyle.css">
+    <style>
+        /* تنسيق إضافي لسلة المشتريات */
+        .cart {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        .cart h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .cart ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .cart ul li {
+            margin-bottom: 5px;
+        }
+
+        .total-price {
+            font-weight: bold;
+        }
+
+        .product button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #7c5a3f;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .product button:hover {
+            background-color: #987051;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Products</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+    <!-- محتوى الصفحة -->
+    <div class="products">
+        <h1>Our Products</h1>
+
+        <!-- منتج 1: سيروم -->
+        <div class="product">
+            <img src="1.png" alt="Serum">
+            <h2>Serum</h2>
+            <p>Eco-friendly beauty serum with natural ingredients like aloe vera and vitamin E.</p>
+            <p><strong>Ingredients:</strong> Aloe Vera, Vitamin E, Green Tea Extract</p>
+            <div class="price">66 SAR</div>
+            <button onclick="addToCart('Serum', 66)">Add to Cart</button>
+        </div>
+
+        <!-- منتج 2: مرطب للوجه -->
+        <div class="product">
+            <img src="2.png" alt="Moisturizer">
+            <h2>Face Moisturizer</h2>
+            <p>Hydrating moisturizer with natural ingredients like shea butter and honey.</p>
+            <p><strong>Ingredients:</strong> Shea Butter, Honey, Jojoba Oil</p>
+            <div class="price">80 SAR</div>
+            <button onclick="addToCart('Face Moisturizer', 80)">Add to Cart</button>
+        </div>
+
+        <!-- منتج 3: غسول للوجه -->
+        <div class="product">
+            <img src="3.png" alt="Face Wash">
+            <h2>Face Wash</h2>
+            <p>Gentle cleanser for your skin with natural ingredients like chamomile and rose water.</p>
+            <p><strong>Ingredients:</strong> Chamomile Extract, Rose Water, Olive Oil</p>
+            <div class="price">85 SAR</div>
+            <button onclick="addToCart('Face Wash', 85)">Add to Cart</button>
+        </div>
+
+        <!-- منتج 4: غسول للجسم -->
+        <div class="product">
+            <img src="4.png" alt="Body Wash">
+            <h2>Body Wash</h2>
+            <p>Refreshing body wash with soothing ingredients like lavender and coconut oil.</p>
+            <p><strong>Ingredients:</strong> Lavender Oil, Coconut Oil, Aloe Vera</p>
+            <div class="price">115 SAR</div>
+            <button onclick="addToCart('Body Wash', 115)">Add to Cart</button>
+        </div>
+
+        <!-- منتج 5: مرطب للعين -->
+        <div class="product">
+            <img src="5.png" alt="Eye Moisturizer">
+            <h2>Eye Moisturizer</h2>
+            <p>Hydrating eye cream with natural ingredients to reduce puffiness and dark circles.</p>
+            <p><strong>Ingredients:</strong> Caffeine, Vitamin C, Aloe Vera</p>
+            <div class="price">55 SAR</div>
+            <button onclick="addToCart('Eye Moisturizer', 55)">Add to Cart</button>
+        </div>
+
+    </div> <!-- End of Products Section -->
+
+    <script>
+        // دالة لإضافة منتج إلى السلة
+        function addToCart(productName, productPrice) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // البحث عن المنتج في السلة
+            const existingProduct = cart.find(item => item.name === productName);
+
+            if (existingProduct) {
+                existingProduct.quantity += 1; // زيادة الكمية
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
+
+            // تحديث localStorage
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(`${productName} has been added to the cart!`);
+        }
+    </script>
+</body>
+</html>
+

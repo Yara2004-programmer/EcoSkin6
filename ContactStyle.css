@@ -1,0 +1,128 @@
+/* تنسيق صفحة الاتصال */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+.contact {
+    padding: 50px 20px;
+    background: white;
+    text-align: center;
+}
+
+.contact h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.contact p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* تنسيق النموذج */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+/* الحقول عند التمرير */
+input[type="text"], input[type="email"], textarea {
+    background-color: #dcd0b9;  /* اللون البني الفاتح */
+    border: 1px solid #ccc;  /* حدود خفيفة حول الحقول */
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;  /* جعل الحقول تأخذ عرض الصفحة بالكامل */
+    border-radius: 5px;  /* منح الحقول زوايا دائرية */
+    color: black;  /* لون النص داخل الحقول */
+    margin-bottom: 15px;  /* مسافة بين الحقول */
+}
+
+/* تنسيق عند التمرير داخل الحقول */
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: #987051;  /* تغيير لون الحدود عند التمرير */
+    background-color: #fff;  /* تغيير الخلفية عند التمرير */
+}
+
+/* تنسيق الزر */
+.submit-btn {
+    background-color: #987051;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #dcd0b9;  /* تغيير اللون عند التمرير */
+}
+
+/* الهيدر (القائمة العلوية) */
+nav {
+    background-color: #ad8a6d;
+    color: #fff;
+    padding: 10px 485px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #dcd0b9;  /* تغيير لون الرابط عند التمرير */
+}
+
+/* تنسيق الرابط */
+a {
+    text-decoration: none;  /* إزالة الخط تحت الرابط */
+    color: black;  /* تغيير اللون إلى الأسود */
+    transition: color 0.3s ease;  /* إضافة تأثير تدريجي عند تغيير اللون */
+}
+
+a:hover {
+    color: #dcd0b9;  /* تغيير اللون عند التمرير فوق الرابط */
+}

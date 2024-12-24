@@ -1,0 +1,101 @@
+/* إعدادات عامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* تنسيق الرابط */
+a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #7d9b52;
+}
+
+
+nav {
+    background-color: #ad8a6d;
+    color: #fff;
+    padding: 10px 485px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    font-size: 16px;
+    font-weight: bold;
+}
+nav ul li a:hover {
+    color: white;
+}
+
+/* القسم الخاص بالمنتجات */
+.products {
+    text-align: center;
+    padding: 50px 20px;
+    background: #fefefe;
+}
+.products h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* تنسيق كل منتج */
+
+/* تنسيق كل منتج */
+.product {
+    display: inline-block;
+    width: 300px; /* العرض المحدد للمنتج */
+    margin: 20px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product img {
+    width: 100%;         /* تعيين العرض ليكون بنسبة 100% من العنصر الأب */
+    height: auto;        /* الحفاظ على النسب الأصلية للصورة */
+    object-fit: cover;   /* ملاءمة الصورة بشكل جيد داخل العنصر مع الحفاظ على الجودة */
+}
+
+.product h2 {
+    font-size: 20px;
+    color: #333;
+    margin: 15px 0 10px;
+}
+.product p {
+    font-size: 14px;
+    color: #666;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+.product .price {
+    font-size: 18px;
+    color: #987051;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* الهوامش */
+body {
+    background: #f9f9f9;
+    margin: 0;
+}
